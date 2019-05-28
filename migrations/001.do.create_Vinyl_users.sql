@@ -5,6 +5,7 @@ CREATE TABLE Vinyl_users (
   last_name TEXT NOT NULL,
   password TEXT NOT NULL,
   email TEXT NOT NULL,
+  phone_number CHAR(10) NOT NULL,
   date_created TIMESTAMP DEFAULT now() NOT NULL,
   date_modified TIMESTAMP
 );
