@@ -1,8 +1,8 @@
-/*golbal expect request */
+/*golbal expect require */
 const knex = require('knex')
 const bcrypt = require('bcryptjs')
 const app = require('../src/app')
-const helpers = require('./test-helpers')
+const helpers = require('./test-helpers' )
 
 describe.only('Users Endpoints', function () {
     let db
@@ -37,11 +37,17 @@ describe.only('Users Endpoints', function () {
 
             requiredFields.forEach(field => {
                 const registerAttemptBody = {
+                    user_name: 'user_name',
+                    password: 'password',
+                    first_name: 'first_name',
+                    last_name: 'last_name',
+                    email: 'email',
+                    phone_number: 'phone_number'
                 }
 
                 it(`responds with 400 required error when '${field}' is missing`, () => {
                     delete registerAttemptBody[field]
-                    return request(app)
+                    return require(app)
                         .post('/vinyl/users')
                         .send(registerAttemptBody)
                         .expect(400, {

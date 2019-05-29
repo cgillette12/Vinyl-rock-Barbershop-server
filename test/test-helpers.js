@@ -10,7 +10,7 @@ function makeUsersArray() {
       first_name: 'first_name-1',
       last_name: 'last_name-1',
       email: 'email-1',
-      phone_number: '1',
+      phone_number: 1,
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ function makeUsersArray() {
       first_name: 'first_name-2',
       last_name: 'last_name-2',
       email: 'email-2',
-      phone_number: '-2',
+      phone_number: 2,
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ function makeUsersArray() {
       first_name: 'first_name-3',
       last_name: 'last_name-3',
       email: 'email-3',
-      phone_number: '-3',
+      phone_number: 3,
     },
     {
       id: 4,
