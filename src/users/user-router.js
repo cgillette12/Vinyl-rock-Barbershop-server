@@ -39,7 +39,7 @@ usersRouter
               date_created: 'now()'
             };
 
-            return UsersService.insetUser(
+            return UsersService.insertUser(
               req.app.get('db'),
               newUser
             )

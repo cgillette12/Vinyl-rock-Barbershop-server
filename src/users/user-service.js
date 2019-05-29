@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 
 const UsersService = {
   hasUserWithUserName(db, user_name) {
-    return db('Vinyl_users')
+    return db('vinyl_users')
       .where({ user_name })
       .first()
       .then(user => !!user);
@@ -13,7 +13,7 @@ const UsersService = {
   insertUser(db, newUser) {
     return db
       .insert(newUser)
-      .into('Vinyl_users')
+      .into('vinyl_users')
       .returning('*')
       .then(([user]) => user);
   },
@@ -47,3 +47,4 @@ const UsersService = {
     };
   }
 };
+module.exports = UsersService;
