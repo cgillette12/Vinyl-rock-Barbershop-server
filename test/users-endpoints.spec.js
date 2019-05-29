@@ -1,4 +1,4 @@
-/*golbal expect */
+/*golbal expect request */
 const knex = require('knex')
 const bcrypt = require('bcryptjs')
 const app = require('../src/app')
@@ -7,7 +7,7 @@ const helpers = require('./test-helpers')
 describe.only('Users Endpoints', function () {
     let db
 
-    const { testUsers } = helpers.makeThingsFixtures();
+    const { testUsers } = helpers.makeVinylFixtures();
     const testUser = testUsers[0];
 
     before('make knex instance', () => {
@@ -41,8 +41,8 @@ describe.only('Users Endpoints', function () {
 
                 it(`responds with 400 required error when '${field}' is missing`, () => {
                     delete registerAttemptBody[field]
-                    return supertest(app)
-                        .post('/api/users')
+                    return request(app)
+                        .post('/vinyl/users')
                         .send(registerAttemptBody)
                         .expect(400, {
                             error: `Missing '${field}' in request body`,
