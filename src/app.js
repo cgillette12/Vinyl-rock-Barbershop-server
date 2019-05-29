@@ -17,7 +17,7 @@ app.use(morgan(morganOption));
 app.use(cors());
 app.use(helmet());
 
-app.use('/user',usersRouter);
+app.use('/vinyl/user',usersRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
