@@ -33,6 +33,7 @@ usersRouter
               first_name, 
               last_name,
               user_name, 
+              password:hashedPassword,
               email,
               phone_number,
               date_created: 'now()'
