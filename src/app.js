@@ -6,6 +6,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const {NODE_ENV} = require('./config');
 const usersRouter = require('./users/user-router');
+const authRouter = require('./auth/auth-router');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/vinyl/user',usersRouter);
+app.use('/vinyl/auth',authRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
