@@ -10,7 +10,6 @@ const authRouter = require('./auth/auth-router');
 
 const app = express();
 
-
 app.use(morgan((NODE_ENV === 'production')
   ? 'tiny'
   : 'common', {

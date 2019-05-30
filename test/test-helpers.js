@@ -55,11 +55,12 @@ function seedUsers(db, users) {
         password: bcrypt.hashSync(user.password, 1)
     }))
     return db.into('vinyl_users').insert(preppedUsers)
-        .then(() =>
-            db.raw(
+        .then(() => {
+            return db.raw(
                 `SELECT setval('vinyl_users_id_seq', ?)`,
                 [users[users.length - 1].id]
             )
+          }
         )
 }
 

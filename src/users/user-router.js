@@ -6,6 +6,7 @@ const UsersService = require('./user-service');
 const usersRouter = express.Router();
 const jsonBodyParser = express.json();
 
+
 usersRouter 
   .post('/', jsonBodyParser, (req,res,next)=>{
     const {user_name,first_name,last_name,email,phone_number,password} = req.body;
@@ -38,7 +39,8 @@ usersRouter
               phone_number,
               date_created: 'now()'
             };
-
+            console.log(newUser);
+            
             return UsersService.insertUser(
               req.app.get('db'),
               newUser
