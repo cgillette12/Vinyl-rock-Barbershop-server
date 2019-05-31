@@ -1,4 +1,0 @@
-ALTER TABLE Vinyl_users
-  DROP COLUMN IF EXISTS author_id;
-
-DROP TABLE IF EXISTS Vinyl_users;

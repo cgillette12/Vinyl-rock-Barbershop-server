@@ -9,3 +9,8 @@ CREATE TABLE Vinyl_users (
   date_created TIMESTAMP DEFAULT now() NOT NULL,
   date_modified TIMESTAMP
 );
+
+ALTER TABLE Appointments
+  ADD COLUMN
+    user_id INTEGER REFERENCES Vinyl_users(id)
+    ON DELETE SET NULL;
