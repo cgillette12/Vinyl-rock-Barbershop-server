@@ -1,6 +1,23 @@
 BEGIN;
 
-INSERT INTO Vinyl_users(user_name,first_name,last_name, email, phone_number , password)
+INSERT INTO barbers(first_name)
 VALUES
-  ('dunder1', 'Dunder', 'Mifflin', 'cgi1@gmail.com', 9162891213, '$2a$12$lHK6LVpc15/ZROZcKU00QeiD.RyYq5dVlV/9m4kKYbGibkRc5l4Ne');
+  ('Shawn'),
+  ('Ben'),
+  ('Sara'),
+  ('Kelly'),
+  ('Travor'),
+  ('Cameron');
+
+INSERT INTO services (type , price)
+VALUES
+  ('HAIRCUT','$20'),
+  ('BUZZCUT','$15'),
+  ('KID 12 AND UNDER','$10'),
+  ('SENIOR CUT 60+','$10'),
+  ('DESIGNS','$5'),
+  ('BEARD TRIM','$10'),
+  ('BEARD TRIM (RAZOR FINISH)','$15'),
+  ('HAIRCUT AND BEARD TRIM','$30'),
+  ('LUXURY SHAVE','$30');
 COMMIT;
