@@ -17,7 +17,7 @@ barberRouter
   .route('/:barber_id')
   .all(requireAuth)
   .get((req,res)=>{
-    res.json(BarberService.serializeBarber(res.barber));
+    res.json(res.barber);
   });
 
 module.exports = barberRouter;
