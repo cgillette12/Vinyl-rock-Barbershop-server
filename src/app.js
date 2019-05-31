@@ -5,9 +5,10 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const {NODE_ENV} = require('./config');
+
 const usersRouter = require('./users/user-router');
 const authRouter = require('./auth/auth-router');
-
+const barberRouter = require('./barbers/barber-router');
 const app = express();
 
 app.use(morgan((NODE_ENV === 'production')
@@ -20,6 +21,7 @@ app.use(helmet());
 
 app.use('/vinyl/user',usersRouter);
 app.use('/vinyl/auth',authRouter);
+app.use('/vinyl/barber',barberRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;

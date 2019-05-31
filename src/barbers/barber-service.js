@@ -4,8 +4,9 @@ const xss = require('xss');
 
 const BarberService = {
   getAllBarbers(db){
-    return db('barbers')
-      .select('*');
+    return db
+      .select('*')
+      .from('barbers');
         
   },
   getById(knex,id){
@@ -14,11 +15,6 @@ const BarberService = {
       .first('*')
       .where('id',id);
   },
-
-  serializeBarber(barber){
-    return {
-      id: barber.id,
-      first_name:xss(barber.first_name)
-    };
-  }
 };
+
+module.exports = BarberService;
