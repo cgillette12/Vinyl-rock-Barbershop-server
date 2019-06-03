@@ -17,7 +17,11 @@ barberRouter
   .route('/:barber_id')
   .all(requireAuth)
   .get((req,res)=>{
-    res.json(res.barber);
+    BarberService.getById(req.app.get('db'),req.params.barber_id)
+      .then(barber => {
+        res.json(barber);
+      });
+
   });
 
 module.exports = barberRouter;
