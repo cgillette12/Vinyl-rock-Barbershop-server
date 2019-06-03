@@ -25,7 +25,7 @@ app.use('/vinyl/user',usersRouter);
 app.use('/vinyl/auth',authRouter);
 app.use('/vinyl/barber',barberRouter);
 app.use('/vinyl/services',serviceRouter);
-app.user('/vinyl/Appointment',appointmentRouter);
+app.use('/vinyl/Appointment',appointmentRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;

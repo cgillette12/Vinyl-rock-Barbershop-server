@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const path = require('path');
-const AppointmentService = require('./Appointment-service');
+const AppointmentService = require('../Appoinments/Appointment-services');
 const { requireAuth } = require('../middleware/jwt-auth');
 
 
@@ -11,7 +11,7 @@ const jsonBodyParser = express.json();
 AppointmentRouter
   .route('/')
   .get((req, res, next) => {
-    AppointmentService.getAllAppointments(req.app.get('db'))
+    AppointmentService.getAppointments(req.app.get('db'))
       .then(Appointments => {
         res.json(Appointments);
       })

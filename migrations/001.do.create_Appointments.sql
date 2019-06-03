@@ -1,7 +1,7 @@
 CREATE TABLE Appointments(
+    id SERIAL PRIMARY KEY,
     time TEXT NOT NULL,
-    today TEXT NOT NUll,
-    tommorrow TEXT NOT NULL,
+    tomorrow TEXT,
     date_created TIMESTAMP DEFAULT now() NOT NULL
     
 );

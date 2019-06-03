@@ -39,7 +39,6 @@ usersRouter
               phone_number,
               date_created: 'now()'
             };
-            console.log(newUser);
             
             return UsersService.insertUser(
               req.app.get('db'),

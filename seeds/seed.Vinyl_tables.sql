@@ -20,4 +20,8 @@ VALUES
   ('BEARD TRIM (RAZOR FINISH)','$15'),
   ('HAIRCUT AND BEARD TRIM','$30'),
   ('LUXURY SHAVE','$30');
+
+INSERT INTO appointments (time,tomorrow )
+VALUES
+ ('8:00 a.m','yes');
 COMMIT;
