@@ -31,8 +31,9 @@ AppointmentRouter
 AppointmentRouter
   .route('/')
   .post(requireAuth, jsonBodyParser, (req, res, next) => {
-    const { time, user_id, service_id, barber_id } = req.body;
-    const newAppointment = { time, user_id, service_id, barber_id };
+    const { time, users_id, services_id , barber_id } = req.body;
+   
+    const newAppointment = { time, users_id, services_id , barber_id };
 
     for (const [key, value] of Object.entries(newAppointment))
       if (value == null)
@@ -40,17 +41,18 @@ AppointmentRouter
           error: `Missing '${key}' in request body`
         });
 
-    newAppointment.user_id = req.user_id;
+    newAppointment.users_id = req.users_id;
 
     AppointmentService.insertAppointment(
       req.app.get('db'),
       newAppointment
     )
-      .then(appointment=> {
+      .then(appointment => {
+        console.log(appointment);
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${appointment.id}`))
-          .json(AppointmentService.serializeUser(appointment));
+          .json(appointment);
       })
       .catch(next);
   });

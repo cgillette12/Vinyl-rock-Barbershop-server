@@ -15,7 +15,7 @@ const AppointmentService = {
         'app.date_created',
         'app.barber_id',
         'app.services_id',
-        'app.user_id',
+        'app.users_id',
         db.raw(`json_strip_nulls(
             row_to_json(
                 SELECT tmp FROM (
@@ -34,10 +34,10 @@ const AppointmentService = {
         'services_id',
         'barber_id'
       )
-      .first('*')
-      .where('id', id);
+      .first()
+      .where('app.id', id);
   },
-  insertUser(db, User) {
+  insertAppointment(db, User) {
     return db
       .insert(User)
       .into('appointments')

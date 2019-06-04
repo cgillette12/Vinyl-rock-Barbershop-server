@@ -12,5 +12,5 @@ CREATE TABLE Vinyl_users (
 
 ALTER TABLE Appointments
   ADD COLUMN
-    user_id INTEGER REFERENCES Vinyl_users(id)
+    users_id INTEGER REFERENCES Vinyl_users(id)
     ON DELETE SET NULL;
