@@ -2,8 +2,22 @@
 const AppointmentService = {
   getAppointments(db) {
     return db
-      .select('*')
-      .from('appointments');
+      .from('appointments AS app')
+      .select(
+        'app.time',
+        'barbers.first_name',
+        'services.type'
+      )
+      .leftJoin(
+        'barbers',
+        'app.barber_id',
+        'barbers.id'
+      )
+      .leftJoin(
+        'services',
+        'app.services_id',
+        'services.id'
+      );
 
   },
   getById(db, id) {
@@ -13,25 +27,19 @@ const AppointmentService = {
         'app.id',
         'app.time',
         'app.date_created',
-        'app.barber_id',
-        'app.services_id',
         'app.users_id',
-        db.raw(`json_strip_nulls(
-            row_to_json(
-                SELECT tmp FROM (
-                    SELECT 
-                    usr.id,
-                    usr.user_name
-                )tmp)
-            )
-        )AS "user"`
-        )
+        'barbers.first_name',
+        'services.type'
       )
       .leftJoin(
-        'app.id',
-        'users_id',
-        'services_id',
-        'barber_id'
+        'barbers',
+        'app.barber_id',
+        'barbers.id' 
+      )
+      .leftJoin(
+        'services',
+        'app.services_id',
+        'services.id'
       )
       .first()
       .where('app.id', id);
