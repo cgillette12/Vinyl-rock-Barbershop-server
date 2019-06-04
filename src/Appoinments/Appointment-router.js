@@ -41,14 +41,13 @@ AppointmentRouter
           error: `Missing '${key}' in request body`
         });
 
-    newAppointment.users_id = req.users_id;
+    newAppointment.users_id = req.user.id;
 
     AppointmentService.insertAppointment(
       req.app.get('db'),
       newAppointment
     )
       .then(appointment => {
-        console.log(appointment);
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${appointment.id}`))
