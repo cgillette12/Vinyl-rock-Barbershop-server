@@ -48,6 +48,7 @@ AppointmentRouter
       newAppointment
     )
       .then(appointment => {
+   
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${appointment.id}`))
