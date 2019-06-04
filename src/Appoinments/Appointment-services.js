@@ -28,9 +28,8 @@ const AppointmentService = {
         )
       )
       .leftJoin(
-        'vinyl_users AS usr',
         'app.id',
-        'usr.id',
+        'users_id',
         'services_id',
         'barber_id'
       )
