@@ -26,8 +26,17 @@ AppointmentRouter
         res.json(Appointment);
       });
 
+  })
+  .delete((req, res, next) => {
+    AppointmentService.deleteAppointment(
+      req.app.get('db'),
+      req.params.Appointment_id
+    )
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
   });
-
 AppointmentRouter
   .route('/')
   .post(requireAuth, jsonBodyParser, (req, res, next) => {
@@ -56,5 +65,6 @@ AppointmentRouter
       })
       .catch(next);
   });
+
 
 module.exports = AppointmentRouter;

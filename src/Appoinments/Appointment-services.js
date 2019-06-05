@@ -52,6 +52,12 @@ const AppointmentService = {
       .returning('*')
       .then(([user]) => user);
   },
+  deleteAppointment(db, appId) {
+    return db
+      .from('appointments AS app')
+      .where('app.id', appId )
+      .delete();
+  },
 };
 
 module.exports = AppointmentService;
