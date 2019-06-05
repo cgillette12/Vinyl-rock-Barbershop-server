@@ -1,6 +1,6 @@
 'use strict';
 const AppointmentService = {
-  getAppointments(db) {
+  getAppointments(db,userId) {
     return db
       .from('appointments AS app')
       .select(
@@ -17,10 +17,11 @@ const AppointmentService = {
         'services',
         'app.services_id',
         'services.id'
-      );
+      )
+      .where('app.users_id',userId);
 
   },
-  getById(db, id) {
+  getById(db, appId) {
     return db
       .from('appointments AS app')
       .select(
@@ -42,7 +43,7 @@ const AppointmentService = {
         'services.id'
       )
       .first()
-      .where('app.id', id);
+      .where('app.id', appId);
   },
   insertAppointment(db, User) {
     return db
