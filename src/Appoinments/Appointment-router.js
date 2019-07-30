@@ -10,13 +10,14 @@ const jsonBodyParser = express.json();
 
 AppointmentRouter
   .route('/')
-  .get(requireAuth,(req, res, next) => {
-    AppointmentService.getAppointments(req.app.get('db') , req.user.id)
+  .get(requireAuth, (req, res, next) => {
+    AppointmentService.getAppointments(req.app.get('db'), req.user.id)
       .then(Appointments => {
         res.json(Appointments);
       })
       .catch(next);
   });
+
 AppointmentRouter
   .route('/:Appointment_id')
   .all(requireAuth)
@@ -40,9 +41,9 @@ AppointmentRouter
 AppointmentRouter
   .route('/')
   .post(requireAuth, jsonBodyParser, (req, res, next) => {
-    const { time, services_id , barber_id } = req.body;
-   
-    const newAppointment = { time , services_id , barber_id };
+    const { time, services_id, barber_id } = req.body;
+
+    const newAppointment = { time, services_id, barber_id };
 
     for (const [key, value] of Object.entries(newAppointment))
       if (value == null)
@@ -57,7 +58,7 @@ AppointmentRouter
       newAppointment
     )
       .then(appointment => {
-   
+
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${appointment.id}`))

@@ -4,4 +4,4 @@ const supertest = require('supertest');
 
 
 global.expect = expect;
-global.request = supertest;
+global.supertest = supertest;

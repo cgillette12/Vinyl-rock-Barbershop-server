@@ -1,5 +1,6 @@
 'use strict';
 const knex = require('knex');
+/* globals supertest */
 const bcrypt = require('bcryptjs');
 const app = require('../src/app');
 const helpers = require('./test-helpers' );
@@ -47,7 +48,7 @@ describe.only('Users Endpoints', function () {
 
         it(`responds with 400 required error when '${field}' is missing`, () => {
           delete registerAttemptBody[field];
-          return request(app)
+          return supertest(app)
             .post('/vinyl/user')
             .send(registerAttemptBody)
             .expect(400, {
