@@ -4,5 +4,5 @@ CREATE TABLE barbers (
 );
 ALTER TABLE Appointments
   ADD COLUMN
-    barber_id INTEGER REFERENCES barbers(id)
+    barber_id INTEGER REFERENCES barbers(id) 
     ON DELETE SET NULL;
