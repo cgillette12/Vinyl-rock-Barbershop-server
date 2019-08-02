@@ -1,25 +1,64 @@
-# Express Boilerplate!
+# Vinyle Rock
+Brought to you by Cody Gillette
 
-This is a boilerplate project used for starting new projects!
+[SquadUp Live](https://squadup.now.sh "Live Site")
 
-## Set up
+[SquadUp Repo](https://github.com/cgillette12/Squad-up-Client "Front End Repo")
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+Where hair cutting comes easy Vinyl Rock is all about taking the hassle out of getting your hair cut!
+Once logged in you'll be able to select from one of our barbers! Just select the name of the barber, pick your Service and Time, then check your profile. Your apointment will be updated! So Login or Sign up and never have to worry about your hair again!!!
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
 
-## Scripts
+## V1 Feature List
+- [x] Select Barber from List
+- [x] Service page for unloged in users .
+- [x] Schedule appointments. 
 
-Start the application `npm start`
-Start nodemon for the application `npm run dev`
+## V2 Feature List (Coming Soon)
+- [ ] Being able to cancel appointments
+- [ ] Having button that favorites and unfavorites barber.  
+- [ ] Admin user manage barber shedules.
 
-Run the tests `npm test`
 
-## Deploying
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+## Tech Stack
+Created with Node.js, Express, PostgreSQL, Knex.js, JWT. 
+
+## API 
+```
+/api
+
+├── /auth
+│   └── POST
+│   |   └── /token
+│   └── PUT
+│       └── /token
+|
+├── /user
+│   └── GET /
+│   |   └── /:id
+│   └── POST
+│       └── /:id
+|
+├── /appointment
+│   └── GET
+│       ├── /
+│   └── POST
+│       ├── /
+|
+├── /appointment/:Appointment_id
+│   └── GET
+│   |   ├── /
+│
+├── /barber
+│   └── GET
+│       └── /:barber_id
+│ 
+├── /services
+│   └── GET
+│       ├── /
+```
+
+## Created By
+* [Cody Gillette](https://github.com/cgillette12 "Cody's Github")
+
