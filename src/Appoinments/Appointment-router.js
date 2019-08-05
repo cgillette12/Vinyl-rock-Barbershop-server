@@ -45,11 +45,22 @@ AppointmentRouter
 
     const newAppointment = { time, services_id, barber_id };
 
-    for (const [key, value] of Object.entries(newAppointment))
-      if (value == null)
-        return res.status(400).json({
-          error: `Missing '${key}' in request body`
-        });
+    if (!time && !services_id) {
+      return res.status(400).json({
+        error: 'Please select Service and Time'
+      });
+    }
+    if (!time) {
+      return res.status(400).json({
+        error: 'Please select time'
+      });
+    }
+    if (!services_id) {
+
+      return res.status(400).json({
+        error: 'Please select service '
+      });
+    }
 
     newAppointment.users_id = req.user.id;
 
@@ -58,7 +69,10 @@ AppointmentRouter
       newAppointment
     )
       .then(appointment => {
-
+        if (!appointment)
+          return res.status(400).json({
+            error: 'need to select service and appointment',
+          });
         res
           .status(201)
           .location(path.posix.join(req.originalUrl, `/${appointment.id}`))

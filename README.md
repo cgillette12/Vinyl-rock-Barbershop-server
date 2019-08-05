@@ -1,9 +1,8 @@
 # Vinyle Rock
 Brought to you by Cody Gillette
 
-[SquadUp Live](https://squadup.now.sh "Live Site")
-
-[SquadUp Repo](https://github.com/cgillette12/Squad-up-Client "Front End Repo")
+[Vinyl Rock Live](https://vinyl-rock-barbershop.cgillette12.now.sh/ "Live Site")
+[Vinyl Rock Repo](https://github.com/cgillette12/Vinyl-Rock-Barbershop "Front End Repo")
 
 Where hair cutting comes easy Vinyl Rock is all about taking the hassle out of getting your hair cut!
 Once logged in you'll be able to select from one of our barbers! Just select the name of the barber, pick your Service and Time, then check your profile. Your apointment will be updated! So Login or Sign up and never have to worry about your hair again!!!
