@@ -41,9 +41,9 @@ AppointmentRouter
 AppointmentRouter
   .route('/')
   .post(requireAuth, jsonBodyParser, (req, res, next) => {
-    const { time, services_id, barber_id } = req.body;
+    const {  time, services_id, barber_id } = req.body;
 
-    const newAppointment = { time, services_id, barber_id };
+    const newAppointment = {  time, services_id, barber_id };
 
     if (!time && !services_id) {
       return res.status(400).json({

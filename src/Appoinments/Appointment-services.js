@@ -4,6 +4,7 @@ const AppointmentService = {
     return db
       .from('appointments AS app')
       .select(
+        'app.id',
         'app.time',
         'barbers.first_name',
         'services.type'
@@ -55,7 +56,7 @@ const AppointmentService = {
   deleteAppointment(db, appId) {
     return db
       .from('appointments AS app')
-      .where('app.id', appId )
+      .where({ appId })
       .delete();
   },
 };
